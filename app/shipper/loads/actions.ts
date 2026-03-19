@@ -2,7 +2,7 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
+import type { LoadFormData } from "@/lib/types";
 
 // Helper function to verify user is authenticated and is a shipper
 async function verifyShipper() {
@@ -30,17 +30,8 @@ async function verifyShipper() {
   return { error: null, userId: user.id };
 }
 
-// Re-export shared location types and actions
-export { type Location, getLocations } from "@/app/(dashboard)/availability/location-actions";
-
-export interface LoadFormData {
-  origin_location_id: string;
-  destination_location_id: string;
-  loading_date: string; // ISO date string
-}
-
 // Create a new load
-export async function createLoad(formData: LoadFormData): Promise<{ error: string | null }> {
+export async function createLoad(data: LoadFormData): Promise<{ error: string | null }> {
   const verification = await verifyShipper();
   if (verification.error || !verification.userId) {
     return { error: verification.error || "Unauthorized" };
@@ -49,19 +40,19 @@ export async function createLoad(formData: LoadFormData): Promise<{ error: strin
   const supabase = await createClient();
 
   // Validate required fields
-  if (!formData.origin_location_id || !formData.destination_location_id || !formData.loading_date) {
+  if (!data.origin_location_id || !data.destination_location_id || !data.loading_date) {
     return { error: "Origin, destination, and loading date are required" };
   }
 
-  if (formData.origin_location_id === formData.destination_location_id) {
+  if (data.origin_location_id === data.destination_location_id) {
     return { error: "Origin and destination must be different" };
   }
 
   // Insert load with posted_by set from auth - NEVER trust client
   const { error } = await supabase.from("loads").insert({
-    origin_location_id: formData.origin_location_id,
-    destination_location_id: formData.destination_location_id,
-    loading_date: formData.loading_date,
+    origin_location_id: data.origin_location_id,
+    destination_location_id: data.destination_location_id,
+    loading_date: data.loading_date,
     posted_by: verification.userId,
     status: "open",
   });
@@ -71,5 +62,5 @@ export async function createLoad(formData: LoadFormData): Promise<{ error: strin
   }
 
   revalidatePath("/shipper/loads");
-  redirect("/shipper/loads");
+  return { error: null };
 }

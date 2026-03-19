@@ -1,7 +1,8 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import LoadForm from "@/components/load-form";
-import { createLoad, type LoadFormData } from "@/app/shipper/loads/actions";
+import { createLoad } from "@/app/shipper/loads/actions";
+import type { LoadFormData } from "@/lib/types";
 
 export default async function NewLoadPage() {
   const supabase = await createClient();

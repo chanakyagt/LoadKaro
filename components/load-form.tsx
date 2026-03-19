@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
-import { getLocations, type Location, type LoadFormData } from "@/app/shipper/loads/actions";
+import { getLocations } from "@/lib/location";
+import type { Location, LoadFormData } from "@/lib/types";
 
 interface LoadFormProps {
   onSubmit: (data: LoadFormData) => Promise<void>;

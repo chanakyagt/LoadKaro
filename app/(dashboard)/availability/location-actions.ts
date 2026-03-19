@@ -1,13 +1,7 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-
-// Shared location type used by both availability and load forms
-export interface Location {
-  id: string;
-  state: string;
-  city: string;
-}
+import type { Location } from "@/lib/types";
 
 // Fetch all locations with id, state, city (used by UUID-based location dropdowns)
 export async function getLocations(): Promise<{ error: string | null; locations: Location[] }> {

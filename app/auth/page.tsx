@@ -66,9 +66,9 @@ export default function AuthPage() {
     const result = await verifyOTP(phone, otp);
     setLoading(false);
 
-    if (result.error) {
+    if ("error" in result) {
       setError(result.error);
-    } else if (result.needsRegistration) {
+    } else if ("needsRegistration" in result && result.needsRegistration) {
       // New user needs to complete registration
       setUserId(result.userId);
       setStep("register");

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { getStates, getCities } from "@/app/(dashboard)/availability/location-actions";
+import { getStates, getCities } from "@/lib/location";
 
 interface LocationSelectorProps {
   value?: string; // Selected city value

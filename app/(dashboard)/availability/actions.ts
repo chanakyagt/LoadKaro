@@ -3,6 +3,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import type { AvailabilityFormData, AvailabilityWithDetails } from "@/lib/types";
 
 // Helper function to verify user is authenticated and is a driver
 async function verifyDriver() {
@@ -28,42 +29,6 @@ async function verifyDriver() {
   }
 
   return { error: null, user, userId: user.id };
-}
-
-// Type definitions
-export type AvailabilityStatus = "active" | "closed";
-
-export interface AvailabilityFormData {
-  truck_id: string;
-  origin_location_id: string;
-  destination_location_id: string;
-  available_from: string; // ISO date string
-  available_till?: string; // ISO date string
-  expected_rate?: number;
-}
-
-export interface Availability extends AvailabilityFormData {
-  id: string;
-  driver_id: string;
-  status: AvailabilityStatus;
-  created_at: string;
-  updated_at: string;
-}
-
-export interface AvailabilityWithDetails extends Availability {
-  truck: {
-    id: string;
-    category: string;
-    variant_id: string;
-  };
-  origin_location: {
-    city: string;
-    state: string;
-  } | null;
-  destination_location: {
-    city: string;
-    state: string;
-  } | null;
 }
 
 // Get all availabilities for the current driver

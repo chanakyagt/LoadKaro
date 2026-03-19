@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { TruckFormData, TruckVariant } from "@/app/(dashboard)/trucks/actions";
+import type { TruckFormData, TruckVariant } from "@/lib/types";
 import { createClient } from "@/lib/supabase/client";
 
 type TruckCategory = 

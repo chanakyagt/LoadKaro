@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
-import { AvailabilityFormData } from "@/app/(dashboard)/availability/actions";
-import { getLocations, type Location } from "@/app/(dashboard)/availability/location-actions";
+import { getLocations } from "@/lib/location";
+import type { AvailabilityFormData, Location } from "@/lib/types";
 import { formatCategoryName } from "@/lib/utils/truck-formatting";
 import { createClient } from "@/lib/supabase/client";
 
