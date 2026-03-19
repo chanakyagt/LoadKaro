@@ -91,18 +91,18 @@ export default function Header() {
             <p className="text-sm text-muted-foreground mb-6">
               Are you sure you want to log out? You will need to sign in again to access your account.
             </p>
-            <div className="flex gap-3 justify-end">
+            <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
               <button
                 onClick={() => setShowLogoutConfirm(false)}
                 disabled={isLoggingOut}
-                className="rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50"
+                className="w-full sm:w-auto rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50"
               >
                 Cancel
               </button>
               <button
                 onClick={handleSignOut}
                 disabled={isLoggingOut}
-                className="rounded-md bg-destructive px-4 py-2 text-sm font-medium text-destructive-foreground transition-colors hover:bg-destructive/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto rounded-md bg-destructive px-4 py-2 text-sm font-medium text-destructive-foreground transition-colors hover:bg-destructive/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isLoggingOut ? "Logging out..." : "Logout"}
               </button>

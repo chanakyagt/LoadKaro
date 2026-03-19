@@ -87,7 +87,7 @@ export function RegisterForm(props: {
             <label className="block text-sm font-medium text-foreground mb-2">
               Register as
             </label>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               <button
                 type="button"
                 onClick={() => setRole("driver")}

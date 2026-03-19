@@ -135,7 +135,7 @@ export default function LocationSelector({
       <label className="block text-sm font-medium text-foreground mb-2">
         {label} {required && <span className="text-destructive">*</span>}
       </label>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {/* State Dropdown */}
         <div>
           <select

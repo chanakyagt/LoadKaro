@@ -19,7 +19,7 @@ export default async function Home() {
   return (
     <main className="min-h-screen bg-zinc-50 dark:bg-black">
       <div className="mx-auto max-w-6xl px-4">
-        <header className="flex items-center justify-between py-6">
+        <header className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2">
             <div className="h-9 w-9 rounded-lg bg-primary text-primary-foreground grid place-items-center font-bold">
               LK
@@ -30,16 +30,16 @@ export default async function Home() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
             <Link
               href="/auth?mode=signin"
-              className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
             >
               Sign in
             </Link>
             <Link
               href="/auth?mode=signup"
-              className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
             >
               Sign up
             </Link>

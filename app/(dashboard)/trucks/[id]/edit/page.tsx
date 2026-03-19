@@ -48,7 +48,7 @@ export default async function EditTruckPage({ params }: EditTruckPageProps) {
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-2xl mx-auto">
         <div className="mb-8">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-4">
             <div>
               <h1 className="text-3xl font-bold text-foreground mb-2">
                 Edit Truck
@@ -59,7 +59,7 @@ export default async function EditTruckPage({ params }: EditTruckPageProps) {
             </div>
             <Link
               href="/driver/dashboard"
-              className="rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+              className="w-full sm:w-auto text-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
             >
               Dashboard
             </Link>

@@ -146,7 +146,7 @@ export default function LoadForm({ onSubmit, submitLabel = "Post Load" }: LoadFo
           <label className="block text-sm font-medium text-foreground mb-2">
             Origin <span className="text-destructive">*</span>
           </label>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {/* Origin State */}
             <select
               value={originState}
@@ -196,7 +196,7 @@ export default function LoadForm({ onSubmit, submitLabel = "Post Load" }: LoadFo
           <label className="block text-sm font-medium text-foreground mb-2">
             Destination <span className="text-destructive">*</span>
           </label>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {/* Destination State */}
             <select
               value={destinationState}
@@ -259,17 +259,17 @@ export default function LoadForm({ onSubmit, submitLabel = "Post Load" }: LoadFo
         </div>
 
         {/* Submit Button */}
-        <div className="flex gap-3 pt-4">
+        <div className="flex flex-col gap-3 pt-4 sm:flex-row">
           <button
             type="submit"
             disabled={loading || loadingLocations}
-            className="flex-1 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full sm:flex-1 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? "Posting..." : submitLabel}
           </button>
           <Link
             href="/shipper/dashboard"
-            className="rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+            className="w-full sm:w-auto text-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
           >
             Cancel
           </Link>
